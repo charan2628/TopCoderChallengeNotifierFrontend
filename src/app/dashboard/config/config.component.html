@@ -1,0 +1,40 @@
+<div class="config-container">
+    <div class="tags-container">
+        <form class="tags-form" [formGroup]="tagsForm" (ngSubmit)="addTag()">
+            <mat-form-field class="tags-field">
+                    <input matInput placeholder="Tags" formControlName="tag" name="tag">
+            </mat-form-field>
+                <button mat-flat-button color="primary" class="add">ADD</button>
+                <button mat-flat-button color="primary" class="save">SAVE</button>
+            </form>
+            <div class="tags">
+                <mat-chip-list>
+                    <ng-container *ngFor="let tag of tags">
+                        <mat-chip [removable]="true" (removed)="removeTag(tag)">
+                            {{tag}}
+                            <mat-icon matChipRemove>cancel</mat-icon>
+                        </mat-chip> <br/>
+                    </ng-container>
+                </mat-chip-list>
+            </div>
+    </div>
+    <div class="emails-container">
+        <form class="emails-form" [formGroup]="emailsForm" (ngSubmit)="addEmail()">
+            <mat-form-field class="emails-field">
+                    <input matInput placeholder="Email" formControlName="email" name="email">
+            </mat-form-field>
+                <button mat-flat-button color="primary" class="add">ADD</button>
+                <button mat-flat-button color="primary" class="save">SAVE</button>
+            </form>
+            <div class="emails">
+                <mat-chip-list>
+                    <ng-container *ngFor="let email of emails">
+                        <mat-chip [removable]="true" (removed)="removeEmail(email)">
+                            {{email}}
+                            <mat-icon matChipRemove>cancel</mat-icon>
+                        </mat-chip> <br/>
+                    </ng-container>
+                </mat-chip-list>
+            </div>
+    </div>
+</div>

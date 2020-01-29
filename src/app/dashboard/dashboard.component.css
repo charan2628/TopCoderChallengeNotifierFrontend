@@ -1,0 +1,38 @@
+header {
+    width: 35%;
+    height: 100%;
+    position: fixed;
+    margin: 0;
+    background: linear-gradient(rgba(44,45,51,0.9), rgba(44,45,51,0.9));
+    color: white;
+}
+
+header .heading {
+    font-size: 38px;
+    text-align: center;
+}
+
+header ul {
+    width: min-content;
+    margin: auto;
+    font-size: 28px;
+    text-align: center;
+    list-style-type: none;
+}
+
+header ul li {
+    margin-top: 10px;
+}
+
+header ul li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+main {
+    margin-left: 35%;
+}
+
+main h3 {
+    margin: 0;
+}
