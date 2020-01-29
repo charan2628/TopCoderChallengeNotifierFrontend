@@ -1,6 +1,14 @@
-.config-container {
-    padding-left: 70px;
-    padding-top: 60px;
+@media(min-width: 801px) {
+    .config-container {
+        padding-left: 70px;
+        padding-top: 60px;
+    }
+}
+
+@media(max-width: 800px) {
+    .config-container {
+        padding: 20px 0 0 10px;
+    }
 }
 
 .tags-form button {

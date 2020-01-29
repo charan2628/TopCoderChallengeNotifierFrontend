@@ -1,22 +1,25 @@
-<header>
-    <div class="heading">
-        <p>TOPCODER CHALLENGE NOTIFIER</p>
-        <p>ADMIN</p>
-    </div>
-    <nav>
-        <ul>
-            <li>
-                <a href="" class="nav-button">/</a>
-            </li>
-            <li>
-                <a href="" class="nav-button">/config</a>
-            </li>
-            <li>
-                <a href="" class="nav-button">/challenges</a>
-            </li>
-        </ul>
-    </nav>
-</header>
-<main>
-    <router-outlet></router-outlet>
-</main>
+<div class="dashboard-container">
+    <header>
+        <div class="heading">
+            <p>TOPCODER CHALLENGE NOTIFIER</p>
+            <p>ADMIN</p>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a routerLink="" class="nav-button" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}">/</a>
+                </li>
+                <li>
+                    <a routerLink="config" class="nav-button" routerLinkActive="active">/config</a>
+                </li>
+                <li>
+                    <a routerLink="challenges" class="nav-button" routerLinkActive="active">/challenges</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <router-outlet></router-outlet>
+    </main>
+</div>
