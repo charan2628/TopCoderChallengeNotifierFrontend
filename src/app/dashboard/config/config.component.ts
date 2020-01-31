@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
+
+import { DashboardService } from '../dashboard.service';
+import { config } from 'rxjs';
 
 @Component({
   selector: 'app-config',
@@ -14,21 +17,40 @@ export class ConfigComponent implements OnInit {
   emails: Set<String> = new Set();
   emailsForm: FormGroup;
 
-  constructor(private fb: FormBuilder) { 
-    this.tags.add("Node.Js");
-    this.tags.add("Java");
-    this.tags.add("Angular");
+  savingConfig: false;
+
+  constructor(private fb: FormBuilder,
+              private dashboardService: DashboardService) { 
     this.tagsForm = this.fb.group({
       tag: [null]
     });
-    this.emails.add("s.charan@gmail.com");
-    this.emails.add("saber@gmail.com");
     this.emailsForm = this.fb.group({
       email: [null]
     });
   }
 
   ngOnInit() {
+    this.dashboardService.getConfig().subscribe(config => {
+      config.emails.forEach(email => this.emails.add(email));
+      config.tags.forEach(tag => this.tags.add(tag));
+    });
+  }
+
+  getConfig() {
+    this.dashboardService.getConfig().subscribe(config => {
+      config.emails.forEach(email => this.emails.add(email));
+      config.tags.forEach(tag => this.tags.add(tag));
+    });
+  }
+
+  saveConfig() {
+    console.log('saving config');
+    this.dashboardService.updateConfig({
+      emails: Array.from(this.emails),
+      tags: Array.from(this.tags)
+    }).subscribe(() => {
+      this.getConfig();
+    });
   }
 
   addTag() {

@@ -5,7 +5,6 @@
                     <input matInput placeholder="Tags" formControlName="tag" name="tag">
             </mat-form-field>
                 <button mat-flat-button color="primary" class="add">ADD</button>
-                <button mat-flat-button color="primary" class="save">SAVE</button>
             </form>
             <div class="tags">
                 <mat-chip-list>
@@ -24,7 +23,6 @@
                     <input matInput placeholder="Email" formControlName="email" name="email">
             </mat-form-field>
                 <button mat-flat-button color="primary" class="add">ADD</button>
-                <button mat-flat-button color="primary" class="save">SAVE</button>
             </form>
             <div class="emails">
                 <mat-chip-list>
@@ -37,4 +35,6 @@
                 </mat-chip-list>
             </div>
     </div>
+    <button mat-flat-button color="primary" class="save-config"
+        (click)="saveConfig()">SAVE CONFIG</button>
 </div>
