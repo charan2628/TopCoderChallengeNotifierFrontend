@@ -1,0 +1,22 @@
+<div class="dashboard-container">
+    <header>
+        <div class="heading">
+            <p>TOPCODER CHALLENGE NOTIFIER</p>
+            <p>ADMIN</p>
+        </div>
+    </header>
+    <main>
+        <div class="login-form">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <label for="username">USERNAME:</label> 
+                <input matInput name="username"
+                    placeholder="Username" formControlName="username" required> <br/>
+                <label for="password">PASSWORD:</label>
+                <input matInput name="password" type="password" id="password"
+                    placeholder="Password" formControlName="password" required> <br/>
+                <div class="error" *ngIf="message">{{message}}</div>
+                <button mat-flat-button color="primary" class="login" [disabled]="submitting">LOGIN</button>
+            </form>
+        </div>
+    </main>
+</div>

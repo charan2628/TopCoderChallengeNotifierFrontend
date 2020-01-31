@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
-import { DashboardService } from '../dashboard.service';
-import { config } from 'rxjs';
+import { DashboardService } from '../services/dashboard.service';
 
 @Component({
   selector: 'app-config',
