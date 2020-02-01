@@ -13,7 +13,11 @@
             </div>
             <div class="errors">
                 <ul>
-                    <li style="color: orangered;">ERRORS: {{serverStatus.errors}} <mat-icon>error</mat-icon></li>
+                    <li>ERRORS
+                        <ul>
+                            <li style="color: orangered;">OCCURRED: {{serverStatus.errors}} <mat-icon>error</mat-icon></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
             <div class="reload">

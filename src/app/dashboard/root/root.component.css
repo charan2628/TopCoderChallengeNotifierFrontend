@@ -1,8 +1,19 @@
-.server-status mat-card {
-    list-style-type: none;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+@media(min-width: 801px) {
+    .server-status mat-card {
+        list-style-type: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+@media(max-width: 800px) {
+    .server-status mat-card {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .server-status ul li {
