@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Status } from '../models/Status';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RootComponent implements OnInit {
 
-  constructor() { }
+  serverStatus: Status;
+
+  constructor() {
+    this.serverStatus = {
+      successfullTasks: 2,
+      failedTasks: 0,
+      errors: 3
+    }
+  }
 
   ngOnInit() {
   }

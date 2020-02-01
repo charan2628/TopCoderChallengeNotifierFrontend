@@ -1,3 +1,25 @@
-<div class="message">
-    <p>Yo Admin! App is working great!</p>
+<div class="root-container">
+    <div class="server-status">
+        <mat-card>
+            <div class="tasks">
+                <ul>
+                    <li>TASKS
+                        <ul>
+                            <li style="color: green;">SUCCESS: {{serverStatus.successfullTasks}} <mat-icon>check_circle</mat-icon></li>
+                            <li style="color: red;">FAILED: {{serverStatus.failedTasks}} <mat-icon>cancel</mat-icon></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="errors">
+                <ul>
+                    <li style="color: orangered;">ERRORS: {{serverStatus.errors}} <mat-icon>error</mat-icon></li>
+                </ul>
+            </div>
+            <div class="reload">
+                <button mat-flat-button color="primary"
+                    (click)="saveConfig()">RELOAD</button>
+            </div>
+        </mat-card>
+    </div>
 </div>

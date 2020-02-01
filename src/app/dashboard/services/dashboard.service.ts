@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Config } from '../models/Config';
+import { Status } from '../models/Status';
 
 const apiUrl = "http://localhost:8080";
 
@@ -17,8 +18,11 @@ export class DashboardService {
   }
 
   updateConfig(config: Config) {
-    console.log(config);
     return this.httpClient.post<Config>(`${apiUrl}/config`, config);
+  }
+
+  getStatus() {
+    return this.httpClient.get<Status>(`${apiUrl}/status`);
   }
   
   checkServerResponse() {

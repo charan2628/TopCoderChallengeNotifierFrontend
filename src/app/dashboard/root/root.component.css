@@ -1,4 +1,21 @@
-.message {
-    padding-top: 30px;
-    padding-left: 30px;
+.server-status mat-card {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.server-status ul li {
+    display: flex;
+    align-items: center;
+}
+
+.server-status ul ul li {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.reload button {
+   margin-left: 20px;
 }
