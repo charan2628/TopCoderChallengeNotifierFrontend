@@ -5,6 +5,24 @@
         flex-direction: row;
         align-items: center;
     }
+
+    .schedule-now {
+        margin-top: 20px;
+    }
+
+    .schedule-now form{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .schedule-now .form {
+        padding: 10px;
+    }
+
+    .error-log {
+        margin: 10px;
+    }
 }
 
 @media(max-width: 800px) {
@@ -14,6 +32,22 @@
         flex-direction: column;
         align-items: center;
     }
+
+    .schedule-now form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .schedule-now form button {
+        margin-top: 10px;
+    }
+
+    .schedule-now .form {
+        margin-top: 10px;
+    }
+
+    
 }
 
 .server-status ul li {
