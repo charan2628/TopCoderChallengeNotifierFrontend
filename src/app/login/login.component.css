@@ -75,5 +75,8 @@ header ul li a.active {
     width: min-content;
     padding-top: 30%;
     margin: auto;
-    font-size: 30px;
+}
+
+.error {
+    color: red;
 }
