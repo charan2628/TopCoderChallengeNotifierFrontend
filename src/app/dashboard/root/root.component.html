@@ -22,7 +22,7 @@
             </div>
             <div class="reload">
                 <button mat-flat-button color="primary"
-                    (click)="saveConfig()">RELOAD</button>
+                    (click)="loadStatus()">RELOAD</button>
             </div>
         </mat-card>
     </div>
@@ -44,6 +44,17 @@
         </form>
     </div>
     <div class="error-log">
-        <button mat-flat-button color="primary" class="new">SHOW ERROR LOG</button>
+        <button mat-flat-button color="primary" class="show-error-log"
+             (click)="showLog()">SHOW ERROR LOG</button>
+        <button mat-flat-button color="primary" class="hide-error-log"
+             (click)="hideLog()">HIDE ERROR LOG</button>
+        <br/>
+        <div class="log-table" *ngIf="displayLogs">
+            <mat-list>
+                <mat-list-item *ngFor="let message of errorMessages; let i = index">
+                    <p mat-line>{{i+1}}. {{message}}</p>
+                </mat-list-item>
+            </mat-list>
+        </div>
     </div>
 </div>
