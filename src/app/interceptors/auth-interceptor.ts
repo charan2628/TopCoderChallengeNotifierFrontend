@@ -19,7 +19,9 @@ export class AuthInterceptor implements HttpInterceptor {
 
     intercept(req: HttpRequest<any>, next: HttpHandler):
         Observable<HttpEvent<any>> {
-        console.log('got request');
+        if(/.*login$/.test(req.url)) {
+            return next.handle(req);
+        }
         return next.handle(this.addAccessToken(req, this.authService.getAccessToken().access_token))
             .pipe(
                 catchError(err => {
