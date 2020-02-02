@@ -27,6 +27,10 @@
     .error-log button+button {
         margin-left: 10px;
     }
+
+    .error-log .progress {
+        margin: 10px 0;
+    }
 }
 
 @media(max-width: 800px) {

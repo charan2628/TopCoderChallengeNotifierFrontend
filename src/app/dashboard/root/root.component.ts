@@ -13,9 +13,10 @@ export class RootComponent implements OnInit {
 
   serverStatus: Status;
   errorMessages: String[];
-  displayLogs = true;
+  displayLogs = false;
   notifyForm: FormGroup;
   message: String;
+  gettingLogs: boolean = false;
 
   constructor(
     private dashboardService: DashboardService,
@@ -58,8 +59,10 @@ export class RootComponent implements OnInit {
   }
 
   showLog() {
+    this.gettingLogs = true;
     this.dashboardService.getErrorMessages().subscribe(
       messages => {
+        this.gettingLogs = false;
         this.errorMessages = messages
         this.displayLogs = true;
       }
