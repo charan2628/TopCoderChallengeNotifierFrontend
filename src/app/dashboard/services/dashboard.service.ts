@@ -32,7 +32,7 @@ export class DashboardService {
   
   scheduleNowAll(tempMail?: String) {
     if(tempMail !== null) {
-      return this.httpClient.post<String>(`${apiUrl}/schedule/all`, tempMail);
+      return this.httpClient.post<String>(`${apiUrl}/schedule/now/ALL`, tempMail);
     } else {
       return this.httpClient.get(`${apiUrl}/schedule/all`);
     }
@@ -40,7 +40,7 @@ export class DashboardService {
 
   scheduleNowNew(tempMail?: String) {
     if(tempMail !== null) {
-      return this.httpClient.post<String>(`${apiUrl}/schedule/new`, tempMail);
+      return this.httpClient.post<String>(`${apiUrl}/schedule/now/NEW`, tempMail);
     } else {
       return this.httpClient.get(`${apiUrl}/schedule/new`);
     }

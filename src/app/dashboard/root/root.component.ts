@@ -13,10 +13,12 @@ export class RootComponent implements OnInit {
 
   serverStatus: Status;
   errorMessages: String[];
-  displayLogs = false;
   notifyForm: FormGroup;
   message: String;
-  gettingLogs: boolean = false;
+  
+  notifying = false;
+  displayLogs = false;
+  gettingLogs = false;
 
   constructor(
     private dashboardService: DashboardService,
@@ -37,10 +39,13 @@ export class RootComponent implements OnInit {
   }
 
   notifyNew() {
+    console.log(this.notifyForm.valid)
     if(this.notifyForm.valid) {
+      this.notifying = true;
       let tempMail = this.tempMail.value;
       this.dashboardService.scheduleNowNew(tempMail).subscribe(
         res => {
+          this.notifying = false;
           this.message = 'Successfully notified';
         }
       )
@@ -49,9 +54,11 @@ export class RootComponent implements OnInit {
 
   notifyAll() {
     if(this.notifyForm.valid) {
+      this.notifying = true;
       let tempMail = this.tempMail.value;
       this.dashboardService.scheduleNowAll(tempMail).subscribe(
         res => {
+          this.notifying = false;
           this.message = 'Successfully notified';
         }
       )
