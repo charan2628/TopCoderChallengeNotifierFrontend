@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { DashboardService } from '../services/dashboard.service';
+import { toEpochMillis } from '../util/epochTime';
+import { ScheduleTime } from '../models/ScheduleTime';
 
 @Component({
   selector: 'app-config',
@@ -16,7 +18,9 @@ export class ConfigComponent implements OnInit {
   emails: Set<String> = new Set();
   emailsForm: FormGroup;
 
-  savingConfig: false;
+  scheduleForm: FormGroup;
+  scheduling = false;
+  savingConfig = false;
 
   constructor(private fb: FormBuilder,
               private dashboardService: DashboardService) { 
@@ -25,6 +29,9 @@ export class ConfigComponent implements OnInit {
     });
     this.emailsForm = this.fb.group({
       email: [null]
+    });
+    this.scheduleForm = this.fb.group({
+      time: [null]
     });
   }
 
@@ -43,11 +50,12 @@ export class ConfigComponent implements OnInit {
   }
 
   saveConfig() {
-    console.log('saving config');
+    this.savingConfig = true;
     this.dashboardService.updateConfig({
       emails: Array.from(this.emails),
       tags: Array.from(this.tags)
     }).subscribe(() => {
+      this.savingConfig = false;
       this.getConfig();
     });
   }
@@ -74,7 +82,23 @@ export class ConfigComponent implements OnInit {
     this.emails.delete(email);
   }
 
+  schedule() {
+    if(this.time.value !== null) {
+      this.scheduling = true;
+      let scheduleTime: ScheduleTime = {
+        epochMilli: toEpochMillis(this.time.value)
+      };
+      this.dashboardService.schedule(scheduleTime).subscribe(
+        res => {
+          this.scheduling = false;
+        }
+      );
+    }
+  }
+
   get tag() { return this.tagsForm.get('tag'); }
 
   get email() { return this.emailsForm.get('email'); }
+
+  get time() { return this.scheduleForm.get('time'); }
 }

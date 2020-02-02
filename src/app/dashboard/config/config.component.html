@@ -36,5 +36,15 @@
             </div>
     </div>
     <button mat-flat-button color="primary" class="save-config"
-        (click)="saveConfig()">SAVE CONFIG</button>
+        (click)="saveConfig()" [disabled]="savingConfig">SAVE CONFIG</button>
+    <mat-divider></mat-divider>
+    <div class="schedule">
+        <form [formGroup]= "scheduleForm" (ngSubmit)="schedule()">
+            <p>Enter Time to schedule: </p>
+            <mat-form-field class="time-field">
+                <input matInput placeholder="Time" name="time" type="time" formControlName="time">
+            </mat-form-field>
+            <button mat-flat-button color="primary" [disabled]="scheduling">SCHEDULE</button>
+        </form>
+    </div>
 </div>
