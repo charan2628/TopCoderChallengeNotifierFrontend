@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Config } from '../models/Config';
 import { Status } from '../models/Status';
 import { ScheduleTime } from '../models/ScheduleTime';
+import { Challenge } from '../models/Challenge';
 
 const apiUrl = "http://localhost:8080";
 
@@ -48,6 +49,10 @@ export class DashboardService {
 
   schedule(scheduleTime: ScheduleTime) {
     return this.httpClient.post<ScheduleTime>(`${apiUrl}/schedule`, scheduleTime);
+  }
+
+  getChallenges() {
+    return this.httpClient.get<Challenge[]>(`${apiUrl}/challenges`);
   }
 
   checkServerResponse() {
