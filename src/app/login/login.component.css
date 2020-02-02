@@ -60,6 +60,10 @@
     header ul li {
         margin-top: 10px;
     }
+
+    .mobile-spacer {
+        height: 100px;
+    }
 }
 
 header a {

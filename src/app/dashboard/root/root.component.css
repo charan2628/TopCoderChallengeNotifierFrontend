@@ -59,7 +59,21 @@
         margin-top: 10px;
     }
 
-    
+    .schedule-now {
+        margin-bottom: 20px;
+    }
+
+    .error-log {
+        margin-top: 20px;
+    }
+
+    .error-log button {
+        margin-left: 10px;
+    }
+
+    .error-log .progress {
+        margin: 10px 0;
+    }
 }
 
 .server-status ul li {
