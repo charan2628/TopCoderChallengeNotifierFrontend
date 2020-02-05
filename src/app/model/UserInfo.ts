@@ -1,4 +1,4 @@
-export interface LoginInfo {
+export interface UserInfo {
     username: String,
     password: String
 }
