@@ -1,0 +1,22 @@
+@media(min-width: 801px) {
+    .confirm-form {
+        width: 400px;
+        margin-left: 60%;
+        position: absolute;
+        top: 20%;
+    }
+
+    h1.title {
+        font-weight: 400;
+    }
+}
+
+@media(max-width: 800px) {
+    .confirm-form {
+        margin-left: 10%;
+    }
+
+    h1.title {
+        font-weight: 400;
+    }
+}

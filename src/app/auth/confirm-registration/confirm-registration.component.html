@@ -1,0 +1,12 @@
+<div class="confirm-form">
+    <form [formGroup]="confirmForm" (ngSubmit)="onSubmit()">
+        <h1 class="title">CONFIRM REGISTRATION</h1>
+        <p>Please check your mail</p>
+        <mat-form-field appearance="outline">
+            <mat-label>Confirmation code</mat-label>
+            <input matInput placeholder="Confirmation code" name="confirm-code"
+                formControlName="confirm-code" required autofocus>
+        </mat-form-field> <br/>
+        <button mat-flat-button color="primary" class="login" [disabled]="submitting" type="submit">SUBMIT</button>
+    </form>
+</div>
