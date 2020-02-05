@@ -42,7 +42,7 @@ export class RegisterComponent{
       };
       this.auth.register(userInfo).subscribe(
         res => {
-          this.router.navigate(['/confirm-registration']);
+          this.router.navigate(['/confirm-registration'], {queryParams: {email: userInfo.email}});
         },
         err => {
           this.message = 'Error registring, please try again.';
