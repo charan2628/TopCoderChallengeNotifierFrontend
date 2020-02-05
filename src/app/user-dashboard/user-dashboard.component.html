@@ -1,0 +1,28 @@
+<div class="user-dashboard-container">
+    <mat-toolbar>SCHEDULED TIME: {{time | date:'shortTime'}}</mat-toolbar>
+
+    <div class="tags-container">
+        <mat-form-field class="tags-field">
+            <input matInput placeholder="Tags" [(ngModel)]="tag" name="tag" (keyup.enter)="addTag()">
+        </mat-form-field>
+        <button mat-flat-button color="primary" class="add" (click)="addTag()">ADD</button>
+        <div class="tags">
+            <mat-chip-list>
+                <ng-container *ngFor="let tag of tags">
+                    <mat-chip [removable]="true" (removed)="removeTag(tag)">
+                        {{tag}}
+                        <mat-icon matChipRemove>cancel</mat-icon>
+                    </mat-chip> <br/>
+                </ng-container>
+            </mat-chip-list>
+        </div>
+        <button mat-flat-button color="primary" class="update" (click)="updateTags()">UPDATE TAGS</button>
+    </div>
+
+    <div class="schdeule-container">
+        <mat-form-field class="time-field">
+            <input matInput placeholder="Time" [(ngModel)]="schdeuleTime" name="schdeuleTime" type="time">
+        </mat-form-field> <br/>
+        <button mat-flat-button color="primary" class="update" (click)="schdeule()">UPDATE SCHDEULE</button>
+    </div>
+</div>

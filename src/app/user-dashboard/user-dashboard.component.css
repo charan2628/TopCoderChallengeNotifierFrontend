@@ -1,0 +1,54 @@
+@media(min-width: 801px) {
+    .user-dashboard-container {
+        width: 100%;
+        margin-left: 35%;
+        position: absolute;
+    }
+
+    .tags-container {
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+    .tags-container button.add {
+        margin-left: 10px;
+    }
+
+    .schdeule-container {
+        margin-top: 40px;
+        margin-left: 20px;
+    }
+}
+
+@media(max-width: 800px) {
+    .schdeule-container {
+        margin-top: 40px;
+        margin-left: 10px;
+    }
+
+    .tags-container {
+        margin-top: 15px;
+        margin-left: 15px;
+    }
+
+    .tags-container button.add {
+        margin-left: 15px;
+    }
+
+    .schdeule-container {
+        margin-top: 40px;
+        margin-left: 15px;
+    }
+}
+
+mat-toolbar {
+    font-weight: 400;
+}
+
+h2.schedule {
+    font-weight: 400;
+}
+
+.tags {
+    margin-bottom: 20px;
+}
