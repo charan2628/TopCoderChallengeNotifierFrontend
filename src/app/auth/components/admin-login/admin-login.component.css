@@ -1,0 +1,27 @@
+@media(min-width: 801px) {
+    .login-form {
+        width: 400px;
+        margin-left: 60%;
+        position: absolute;
+        top: 20%;
+    }
+
+    h1.title {
+        font-weight: 400;
+    }
+}
+
+@media(max-width: 800px) {
+    .login-form {
+        margin-left: 10%;
+    }
+
+    h1.title {
+        font-weight: 400;
+    }
+}
+
+.error {
+    color: red;
+    padding-bottom: 10px;
+}
