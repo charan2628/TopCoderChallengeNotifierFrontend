@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { DashboardService } from '../services/dashboard.service';
+import { Status } from '../model/Status';
+
 @Component({
   selector: 'app-admin-dashboard',
   templateUrl: './admin-dashboard.component.html',
@@ -7,9 +10,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminDashboardComponent implements OnInit {
 
-  constructor() { }
+  serverStatus: Status;
+  errorMessages: String[];
+  displayLogs = false;
+  gettingLogs = false;
+
+  constructor(private dashboardService: DashboardService) { }
 
   ngOnInit() {
+    this.getStatus();
   }
 
+  getStatus() {
+    this.dashboardService.getStatus().subscribe(
+      res => this.serverStatus = res
+    );
+  }
+
+  loadStatus() {
+    this.getStatus();
+  }
+
+  showLog() {
+    this.displayLogs = true;
+    this.gettingLogs = true;
+    this.dashboardService.getErrorLog().subscribe(
+      res => {
+        this.errorMessages = res;
+        this.gettingLogs = false;
+      }
+    )
+  }
+
+  hideLog() {
+    this.displayLogs = false;
+  }
 }
