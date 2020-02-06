@@ -17,7 +17,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
     intercept(req: HttpRequest<any>, next: HttpHandler):
         Observable<HttpEvent<any>> {
-        if(/.*login$/.test(req.url)) {
+        if(/.*login$/.test(req.url) || /.*register.*/.test(req.url)) {
             return next.handle(req);
         }
         return next.handle(this.addAccessToken(req, this.authService.getAccessToken().access_token))
@@ -25,9 +25,8 @@ export class AuthInterceptor implements HttpInterceptor {
                 catchError(err => {
                     if(err instanceof HttpErrorResponse) {
                         if(err.status === 401) {
-                            this.router.navigate(['login']);
+                            this.router.navigate(['/login']);
                         }
-                    } else {
                         return throwError(err);
                     }
                 })
