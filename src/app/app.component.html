@@ -9,7 +9,7 @@
                         <li><a routerLink="/login" routerLinkActive="active">/login</a></li>
                     </ul>
                 </nav>
-                <nav *ngIf="page === 'user-dashboard'">
+                <nav *ngIf="page === 'user-dashboard' || page === 'admin-dashboard'">
                     <ul>
                         <li><a routerLink="/logout">/logout</a></li>
                     </ul>
