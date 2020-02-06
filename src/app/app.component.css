@@ -30,7 +30,7 @@
     header {
         width: 100%;
         margin: 0;
-        padding: 10px;
+        padding: 10px 0;
         background: linear-gradient(rgba(44,45,51,0.9), rgba(44,45,51,0.9));
         color: white;
     }
@@ -38,6 +38,10 @@
     header .heading {
         font-size: 28px;
         text-align: center;
+    }
+
+    header nav {
+        margin-bottom: 20px;
     }
 
     header ul {

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'TopCoderChallengeNotifierFrontEnd';
+  page: String = 'login-register';
+
+  constructor(private router: Router) {
+    this.router.events.subscribe(
+      event => {
+        if(event instanceof NavigationEnd) {
+          if(router.url === '/login' || router.url === '/register') {
+            this.page = 'login-register';
+          } else if(router.url === '/user-dashboard') {
+            this.page = 'user-dashboard'
+          } else if(router.url === '/admin-dashboard') {
+            this.page = 'admin-dashboard'
+          } else if(router.url === '/logout') {
+            this.page = 'logout';
+          }
+        }
+      }
+    )
+  }
 }

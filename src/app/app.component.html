@@ -2,6 +2,19 @@
     <header>
         <div class="heading">
             <p>TOPCODER CHALLENGE NOTIFIER</p>
+            <div class="login-register">
+                <nav *ngIf="page === 'login-register'">
+                    <ul>
+                        <li><a routerLink="/register" routerLinkActive="active">/register</a></li>
+                        <li><a routerLink="/login" routerLinkActive="active">/login</a></li>
+                    </ul>
+                </nav>
+                <nav *ngIf="page === 'user-dashboard'">
+                    <ul>
+                        <li><a routerLink="/logout">/logout</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
     <router-outlet></router-outlet>
