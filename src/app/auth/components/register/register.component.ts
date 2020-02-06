@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators, FormGroupDirective, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ErrorStateMatcher } from '@angular/material/core';
+
 import { checkPasswords } from 'src/app/utils/validation';
-import {ErrorStateMatcher} from '@angular/material/core';
 import { AuthService } from '../../services/auth.service';
 import { UserInfo } from 'src/app/model/UserInfo';
+import { Message } from 'src/app/utils/Messages';
 
 export class AppErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -45,8 +47,8 @@ export class RegisterComponent{
           this.router.navigate(['/confirm-registration'], {queryParams: {email: userInfo.email}});
         },
         err => {
-          this.message = 'Error registring, please try again.';
           this.submitting = false;
+          this.message = err.message;
         }
       )
     }

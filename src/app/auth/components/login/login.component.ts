@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { AuthService } from '../../services/auth.service';
+import { Message } from 'src/app/utils/Messages';
 
 @Component({
   selector: 'app-login',
@@ -33,8 +34,11 @@ export class LoginComponent implements OnInit {
        this.auth.login(this.loginForm.getRawValue()).subscribe(
          res => this.router.navigate(['user-dashboard']),
          err => {
-          this.message = "Invalid username or password";
+          this.message = err.message;
           this.submitting = false;
+          if(this.message === Message.UNCOFIRMED_REGISTRATION) {
+            this.router.navigate(['login'], {queryParams: {email: this.email.value}});
+          }
          }
        )
      }

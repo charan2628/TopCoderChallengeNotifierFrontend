@@ -34,7 +34,7 @@ export class ConfirmRegistrationComponent implements OnInit {
             this.router.navigate(['/login'], {queryParams: {email: this.email.value}});
           },
           err => {
-            this.message = "Invalid code"
+            this.message = err.message;
             this.submitting = false;
           }
         )

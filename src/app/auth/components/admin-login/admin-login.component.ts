@@ -33,7 +33,7 @@ export class AdminLoginComponent implements OnInit {
        this.auth.adminLogin(this.loginForm.getRawValue()).subscribe(
          res => this.router.navigate(['admin-dashboard']),
          err => {
-          this.message = "Invalid username or password";
+          this.message = err.message;
           this.submitting = false;
          }
        )
