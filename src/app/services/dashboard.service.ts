@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { UserConfig } from '../model/UserConfig';
 import { Status } from '../model/Status';
@@ -18,11 +18,11 @@ export class DashboardService {
     }
 
     updateTags(tags: String[]) {
-        return this.http.post(`${apiUrl}/config/tags`, tags, {observe: 'response'});
+        return this.http.get(`${apiUrl}/config/tags?tags=${tags.join(",")}`, {observe: 'response'});
     }
 
     updateSchedule(time: String) {
-        return this.http.post(`${apiUrl}/config/schedule`, time, {observe: 'response'});
+        return this.http.get(`${apiUrl}/config/schedule?time=${time}`, {observe: 'response'});
     }
 
     getStatus() {
