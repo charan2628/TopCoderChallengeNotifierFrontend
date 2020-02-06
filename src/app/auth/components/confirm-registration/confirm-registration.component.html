@@ -3,10 +3,16 @@
         <h1 class="title">CONFIRM REGISTRATION</h1>
         <p>Please check your mail</p>
         <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Enter email" name="email"
+                formControlName="email" required autofocus>
+        </mat-form-field> <br/>
+        <mat-form-field appearance="outline">
             <mat-label>Confirmation code</mat-label>
             <input matInput placeholder="Confirmation code" name="confirm-code"
-                formControlName="confirm-code" required autofocus>
-        </mat-form-field> <br/>
+                formControlName="confirm-code" required>
+            </mat-form-field> <br/>
+        <div *ngIf="message" class="error">{{message}}</div>
         <button mat-flat-button color="primary" class="login" [disabled]="submitting" type="submit">SUBMIT</button>
     </form>
 </div>
