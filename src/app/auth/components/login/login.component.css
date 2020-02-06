@@ -20,3 +20,8 @@
         font-weight: 400;
     }
 }
+
+.error {
+    color: red;
+    padding-bottom: 10px;
+}
