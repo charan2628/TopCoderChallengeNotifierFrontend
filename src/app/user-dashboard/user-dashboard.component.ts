@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { DashboardService } from '../services/dashboard.service';
+import { toEpochMillis } from '../utils/Util';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -8,16 +9,29 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class UserDashboardComponent implements OnInit {
 
-  time = Date.now();
+  time: Number;
+  message: String;
 
   tag: String = null;
   tags = new Set<String>();
   schdeuleTime: String;
+  updatingTags = false;
+  updatingSchedule = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private dashboardService: DashboardService) {
   }
 
   ngOnInit() {
+    this.getUserConfig();
+  }
+
+  getUserConfig() {
+    this.dashboardService.getUserConfig().subscribe(
+      config => {
+        config.tags.forEach(tag => this.tags.add(tag));
+        this.time = config.scheduleTime;
+      }
+    )
   }
 
   addTag() {
@@ -31,9 +45,34 @@ export class UserDashboardComponent implements OnInit {
     this.tags.delete(tag);
   }
 
+  updateTags() {
+    this.updatingTags = true;
+    this.dashboardService.updateTags([...this.tags]).subscribe(
+      res => {
+        this.message = "Successfully updated tags"
+        this.updatingTags = false;
+      },
+      err => {
+        this.message = "Error updating tags";
+        this.updatingTags = false;
+      }
+    )
+  }
+
   schdeule() {
     if(this.schdeuleTime) {
-      
+      this.updatingSchedule = true;
+      this.dashboardService.updateSchedule(toEpochMillis(this.schdeuleTime) + "").subscribe(
+        res => {
+          this.message = "Successfully updated schedule";
+          this.updatingSchedule = false;
+          this.time = toEpochMillis(this.schdeuleTime);
+        },
+        err => {
+          this.message = "Error updating schedule";
+          this.updatingSchedule = false;
+        }
+      )
     }
   }
 }

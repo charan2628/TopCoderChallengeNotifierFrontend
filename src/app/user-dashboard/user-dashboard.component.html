@@ -16,13 +16,15 @@
                 </ng-container>
             </mat-chip-list>
         </div>
-        <button mat-flat-button color="primary" class="update" (click)="updateTags()">UPDATE TAGS</button>
+        <button mat-flat-button color="primary" class="update" (click)="updateTags()"
+            [disabled]="updatingTags">UPDATE TAGS</button>
     </div>
 
     <div class="schdeule-container">
         <mat-form-field class="time-field">
             <input matInput placeholder="Time" [(ngModel)]="schdeuleTime" name="schdeuleTime" type="time">
         </mat-form-field> <br/>
-        <button mat-flat-button color="primary" class="update" (click)="schdeule()">UPDATE SCHDEULE</button>
+        <button mat-flat-button color="primary" class="update" (click)="schdeule()"
+            [disabled]="updatingSchedule">UPDATE SCHDEULE</button>
     </div>
 </div>
