@@ -2,7 +2,7 @@
     <header>
         <div class="heading">
             <p>TOPCODER CHALLENGE NOTIFIER</p>
-            <div class="login-register">
+            <div class="nav-bar">
                 <nav *ngIf="page === 'login-register'">
                     <ul>
                         <li><a routerLink="/register" routerLinkActive="active">/register</a></li>
@@ -14,6 +14,12 @@
                         <li><a routerLink="/logout">/logout</a></li>
                     </ul>
                 </nav>
+            </div>
+            <div class="info" *ngIf="page === 'user-dashboard'">
+                <p><mat-icon class="warning">warning</mat-icon>Notifications Schdeule Time updated to time less than 30 min
+                     from now will be notified from tomorrow.</p>
+                <p><mat-icon class="warning">warning</mat-icon>Actual notification time may vary by +/- 10 min, due to the 
+                    tunning of app scheduler to reduce load.</p>
             </div>
         </div>
     </header>
