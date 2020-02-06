@@ -8,13 +8,25 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { MaterialModule } from './shared/material.module';
-import { LoginComponent } from './login/login.component';
-import { AuthInterceptor } from './interceptors/auth-interceptor';
+import { RegisterComponent } from './auth/components/register/register.component';
+import { LoginComponent } from './auth/components/login/login.component';
+import { ConfirmRegistrationComponent } from './auth/components/confirm-registration/confirm-registration.component';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AuthInterceptor } from './auth/http-interceptors/auth-interceptor';
+import { AdminLoginComponent } from './auth/components/admin-login/admin-login.component';
+import { LogoutComponent } from './auth/components/logout/logout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    ConfirmRegistrationComponent,
+    UserDashboardComponent,
+    AdminDashboardComponent,
+    AdminLoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
