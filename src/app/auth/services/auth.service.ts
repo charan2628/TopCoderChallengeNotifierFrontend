@@ -71,8 +71,8 @@ export class AuthService {
             return throwError({message: Message.USER_ALREADY_PRESENT});
         } else if (errormsg === Message.INVALID_CONFIRMATION_CODE) {
             return throwError({message: Message.INVALID_CONFIRMATION_CODE});
-        } else if (errormsg === Message.IVALID_EMAIL_OR_PASSWORD) {
-            return throwError({message: Message.IVALID_EMAIL_OR_PASSWORD});
+        } else if (errormsg === Message.INVALID_EMAIL_OR_PASSWORD) {
+            return throwError({message: Message.INVALID_EMAIL_OR_PASSWORD});
         } else if (errormsg === Message.UNCOFIRMED_REGISTRATION) {
             return throwError({message: Message.UNCOFIRMED_REGISTRATION});
         } else {

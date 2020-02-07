@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { Message } from 'src/app/utils/Messages';
 
 @Component({
   selector: 'app-confirm-registration',
@@ -34,7 +35,11 @@ export class ConfirmRegistrationComponent implements OnInit {
             this.router.navigate(['/login'], {queryParams: {email: this.email.value}});
           },
           err => {
-            this.message = err.message;
+            if(err.message === Message.INVALID_EMAIL_OR_PASSWORD) {
+              this.message = Message.INVALID_EMAIL;
+            } else {
+              this.message = err.message;
+            }
             this.submitting = false;
           }
         )
