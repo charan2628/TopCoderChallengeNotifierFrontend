@@ -23,6 +23,8 @@ export class AppComponent {
             this.page = 'logout';
           } else if(router.url === '/un-schedule') {
             this.page = 'un-schedule';
+          } else if(router.url === '') {
+            this.page = 'index';
           }
         }
       }

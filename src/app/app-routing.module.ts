@@ -10,10 +10,11 @@ import { AdminLoginComponent } from './auth/components/admin-login/admin-login.c
 import { LogoutComponent } from './auth/components/logout/logout.component';
 import { AuthGuard } from './auth/guards/auth.guard';
 import { UnScheduleComponent } from './un-schedule/un-schedule.component';
+import { IndexComponent } from './index/index.component';
 
 const routes: Routes = [
   {
-    path: '', pathMatch: 'full', redirectTo: 'register'
+    path: '', pathMatch: 'full', component: IndexComponent
   },
   { path: 'register', component: RegisterComponent },
   { path: 'confirm-registration', component: ConfirmRegistrationComponent },

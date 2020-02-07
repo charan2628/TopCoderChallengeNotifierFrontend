@@ -5,11 +5,12 @@
             <div class="nav-bar">
                 <nav *ngIf="page === 'login-register'">
                     <ul>
+                        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">/</a></li>
                         <li><a routerLink="/register" routerLinkActive="active">/register</a></li>
                         <li><a routerLink="/login" routerLinkActive="active">/login</a></li>
                     </ul>
                 </nav>
-                <nav *ngIf="page === 'user-dashboard' || page === 'admin-dashboard'">
+                <nav *ngIf="page === 'user-dashboard' || page === 'admin-dashboard' || page === 'index'">
                     <ul>
                         <li><a routerLink="/un-schedule">/un-schedule</a></li>
                         <li><a routerLink="/logout">/logout</a></li>
