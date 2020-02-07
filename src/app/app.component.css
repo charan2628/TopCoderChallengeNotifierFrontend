@@ -14,7 +14,6 @@
     }
     
     header ul {
-        width: min-content;
         margin: auto;
         font-size: 28px;
         text-align: center;
@@ -34,6 +33,32 @@
     .warning {
         font-size: 16px;
         color: orange;
+    }
+
+    .mobile-footer {
+        display: none;
+    }
+
+    .desktop-footer {
+        position: absolute;
+        bottom: 3px;
+        width: 100%;
+        font-size: 12px;
+        font-weight: 400;
+    }
+
+    .desktop-footer mat-icon {
+        font-size: 12px;
+        font-weight: 400;
+    }
+
+    .desktop-footer mat-toolbar {
+        font-size: 12px;
+        font-weight: 400;
+    }
+
+    .desktop-footer a {
+        text-decoration: underline;
     }
 }
 
@@ -81,6 +106,15 @@
 
     .mobile-spacer {
         height: 100px;
+    }
+
+    .mobile-footer mat-toolbar{
+        font-size: 12px;
+        font-weight: 400;
+    }
+
+    .desktop-footer {
+        display: none;
     }
 }
 
