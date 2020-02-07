@@ -28,8 +28,10 @@ export class UserDashboardComponent implements OnInit {
   getUserConfig() {
     this.dashboardService.getUserConfig().subscribe(
       config => {
-        config.tags.forEach(tag => this.tags.add(tag));
-        this.time = config.scheduleTime;
+        if(config) {
+          config.tags.forEach(tag => this.tags.add(tag));
+          this.time = config.scheduleTime;
+        }
       }
     )
   }
