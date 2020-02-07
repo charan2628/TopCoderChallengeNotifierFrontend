@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
           this.message = err.message;
           this.submitting = false;
           if(this.message === Message.UNCOFIRMED_REGISTRATION) {
-            this.router.navigate(['login'], {queryParams: {email: this.email.value}});
+            this.router.navigate(['confirm-registration'], {queryParams: {email: this.email.value}});
           }
          }
        )
