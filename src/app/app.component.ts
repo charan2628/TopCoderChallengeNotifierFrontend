@@ -21,6 +21,8 @@ export class AppComponent {
             this.page = 'admin-dashboard'
           } else if(router.url === '/logout') {
             this.page = 'logout';
+          } else if(router.url === '/un-schedule') {
+            this.page = 'un-schedule';
           }
         }
       }

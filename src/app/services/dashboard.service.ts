@@ -25,6 +25,10 @@ export class DashboardService {
         return this.http.get(`${apiUrl}/config/schedule?time=${time}`, {observe: 'response'});
     }
 
+    unSchedule() {
+        return this.http.delete(`${apiUrl}/config`, {observe: 'response'});
+    }
+
     getStatus() {
         return this.http.get<Status>(`${apiUrl}/admin/status`);
     }

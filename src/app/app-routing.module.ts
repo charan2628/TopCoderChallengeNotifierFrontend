@@ -9,6 +9,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { AdminLoginComponent } from './auth/components/admin-login/admin-login.component';
 import { LogoutComponent } from './auth/components/logout/logout.component';
 import { AuthGuard } from './auth/guards/auth.guard';
+import { UnScheduleComponent } from './un-schedule/un-schedule.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'admin-login', component: AdminLoginComponent },
   { path: 'logout', component: LogoutComponent },
   { path: 'user-dashboard', canActivate: [AuthGuard], component: UserDashboardComponent },
+  { path: 'un-schedule', canActivate: [AuthGuard], component: UnScheduleComponent },
   { path: 'admin-dashboard', canActivate: [AuthGuard], component: AdminDashboardComponent }
 ];
 

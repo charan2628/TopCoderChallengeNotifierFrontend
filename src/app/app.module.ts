@@ -16,6 +16,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { AuthInterceptor } from './auth/http-interceptors/auth-interceptor';
 import { AdminLoginComponent } from './auth/components/admin-login/admin-login.component';
 import { LogoutComponent } from './auth/components/logout/logout.component';
+import { UnScheduleComponent } from './un-schedule/un-schedule.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { LogoutComponent } from './auth/components/logout/logout.component';
     UserDashboardComponent,
     AdminDashboardComponent,
     AdminLoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    UnScheduleComponent
   ],
   imports: [
     BrowserModule,

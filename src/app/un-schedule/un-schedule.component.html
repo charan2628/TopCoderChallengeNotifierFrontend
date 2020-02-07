@@ -1,0 +1,11 @@
+<div class="un-schedule-container">
+    <div class="info">
+        <p><mat-icon class="warning">warning</mat-icon> By clicking UN-SCHEDULE, all your  saved tags 
+            and previous challenges will be clearead and removed from mail notification list.</p>
+        <p><mat-icon class="info-text">info</mat-icon> Please enter the word CONFIRM and click UN-SCHEDULE or Enter.</p>
+    </div>
+    <mat-form-field class="tags-field">
+        <input matInput placeholder="Enter 'CONFIRM'" [(ngModel)]="confirm" name="confirm" (keyup.enter)="unSchedule()">
+    </mat-form-field>
+    <button mat-flat-button color="primary" class="un-schedule" (click)="unSchedule()">UN-SCHEDULE</button>
+</div>

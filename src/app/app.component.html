@@ -11,7 +11,13 @@
                 </nav>
                 <nav *ngIf="page === 'user-dashboard' || page === 'admin-dashboard'">
                     <ul>
+                        <li><a routerLink="/un-schedule">/un-schedule</a></li>
                         <li><a routerLink="/logout">/logout</a></li>
+                    </ul>
+                </nav>
+                <nav *ngIf="page === 'un-schedule'">
+                    <ul>
+                        <li><a routerLink="/user-dashboard">/dashboard</a></li>
                     </ul>
                 </nav>
             </div>

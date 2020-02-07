@@ -1,0 +1,25 @@
+.warning {
+    color: orange;
+}
+
+.info-text {
+    color: darkslateblue;
+}
+
+@media(min-width: 801px) {
+    .un-schedule-container {
+        margin-left: 35%;
+        position: absolute;
+        padding-left: 20px;
+    }
+}
+
+@media(max-width: 800px) {
+    .un-schedule-container {
+        padding-left: 8px;
+    }
+}
+
+button.un-schedule {
+    margin-left: 15px;
+}
