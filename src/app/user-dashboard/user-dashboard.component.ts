@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardService } from '../services/dashboard.service';
-import { toEpochMillis } from '../utils/Util';
+import { toSeconds, toEpochMillis } from '../utils/Util';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -64,7 +64,7 @@ export class UserDashboardComponent implements OnInit {
   schdeule() {
     if(this.schdeuleTime) {
       this.updatingSchedule = true;
-      this.dashboardService.updateSchedule(toEpochMillis(this.schdeuleTime) + "").subscribe(
+      this.dashboardService.updateSchedule(toSeconds(this.schdeuleTime) + "").subscribe(
         res => {
           this.message = "Successfully updated schedule";
           this.updatingSchedule = false;
