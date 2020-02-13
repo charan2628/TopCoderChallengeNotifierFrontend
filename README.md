@@ -1,27 +1,29 @@
-# TopCoderChallengeNotifierFrontEnd
+# TopCoder Challenge Notifier FrontEnd
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.19.
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
-## Development server
+FrontEnd for [TopCoder Challenge Notifier Backend](https://github.com/charan2628/TopCoderChallengeNotifierBackend).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+TRY IT OUT [https://custom-built.dev/app/tpcn](https://custom-built.dev/app/tpcn)
 
-## Code scaffolding
+**Framework**: Angular.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Setup
+* Make sure you have `@angular/cli` npm package installed globally.
+```
+npm install -g @angular/cli
+```
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Installation
+```
+npm install
+```
+* Update `apiUrl` in [environment.prod.ts](.src/environment/environment.prod.ts) and [environment.ts](.src/environment/environment.ts) to point it to backend server.
+* To serve locally
+```
+ng serve
+```
+* To build
+```
+ng build --prod
+```
