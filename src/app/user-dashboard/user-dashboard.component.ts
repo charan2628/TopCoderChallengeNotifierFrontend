@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardService } from '../services/dashboard.service';
-import { toSeconds, toEpochMillis } from '../utils/Util';
+import { toSeconds, toEpochMillis, timeToEpoch } from '../utils/Util';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -30,7 +30,7 @@ export class UserDashboardComponent implements OnInit {
       config => {
         if(config) {
           config.tags.forEach(tag => this.tags.add(tag));
-          this.time = config.scheduleTime;
+          this.time = timeToEpoch(+config.scheduleTime);
         }
       }
     )
